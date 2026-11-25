@@ -14036,6 +14036,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "raea-app-voice"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "cpal 0.15.3",
+ "ort",
+ "raea-sys-ml",
+ "raea-sys-speech",
+ "serde_json",
+]
+
+[[package]]
 name = "raea-app-workspace"
 version = "0.1.0"
 dependencies = [
@@ -14282,12 +14294,14 @@ dependencies = [
  "raea-app-sound",
  "raea-app-targets",
  "raea-app-tools",
+ "raea-app-voice",
  "raea-app-workspace",
  "raea-bevy-plugins",
  "raea-core-alloc",
  "raea-core-animate",
  "raea-core-brief",
  "raea-core-program",
+ "raea-denoise-bench",
  "raea-io-home",
  "raea-io-media",
  "raea-io-npm",
@@ -14469,6 +14483,16 @@ name = "raea-core-zfight"
 version = "0.1.0"
 dependencies = [
  "bevy",
+]
+
+[[package]]
+name = "raea-denoise-bench"
+version = "0.1.0"
+dependencies = [
+ "image",
+ "raea-light",
+ "raea-runtime-bundle",
+ "serde_json",
 ]
 
 [[package]]
@@ -14862,6 +14886,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "raea-page-ax"
+version = "0.1.0"
+dependencies = [
+ "accesskit 0.24.1",
+ "bevy",
+ "blitz-dom",
+ "raea-runtime-dom",
+ "raea-sys-a11y",
+ "raea-sys-page",
+ "serde_json",
+ "stylo",
+]
+
+[[package]]
 name = "raea-page-host"
 version = "0.1.0"
 dependencies = [
@@ -14878,6 +14916,7 @@ dependencies = [
  "raea-io-os",
  "raea-io-trace",
  "raea-page",
+ "raea-page-ax",
  "raea-page-sound",
  "raea-page-stage",
  "raea-page-window",
@@ -14887,11 +14926,9 @@ dependencies = [
  "raea-runtime-js",
  "raea-runtime-plugins",
  "raea-runtime-view",
- "raea-sys-a11y",
  "raea-sys-fonts",
  "raea-sys-page",
  "serde_json",
- "stylo",
  "tiny_http",
 ]
 
@@ -14931,11 +14968,14 @@ name = "raea-page-window"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "blitz-traits",
  "block2 0.6.2",
  "objc2 0.6.5",
  "objc2-app-kit 0.3.2",
  "objc2-foundation 0.3.2",
+ "raea-io-os",
  "raea-runtime-js",
+ "raea-sys-page",
  "raw-window-handle",
  "serde_json",
  "windows 0.62.2",
@@ -15180,7 +15220,6 @@ version = "0.1.0"
 dependencies = [
  "dunce",
  "junction",
- "libc",
  "raea-core-scene",
  "raea-io-home",
  "raea-io-media",
@@ -15188,10 +15227,10 @@ dependencies = [
  "raea-native",
  "raea-runtime-bundle-lib",
  "raea-runtime-cssurls",
+ "raea-runtime-pid",
  "raea-sys-layers",
  "regex",
  "serde_json",
- "windows-sys 0.61.2",
 ]
 
 [[package]]
@@ -15510,6 +15549,14 @@ version = "0.1.0"
 dependencies = [
  "image",
  "twox-hash",
+]
+
+[[package]]
+name = "raea-runtime-pid"
+version = "0.1.0"
+dependencies = [
+ "libc",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]

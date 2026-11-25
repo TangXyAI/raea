@@ -3,7 +3,7 @@ import { Children, Fragment, isValidElement, memo, useId, type ReactElement, typ
 import { Solid } from "../solid";
 import { useAnimation3d, type Keys, type Move, type TrackSpec } from "@raea/math/animate";
 import { Place3d, usePlace3d, usePointer3d, type LocalBounds, type PointerHandlers3d } from "../events3d";
-import { Canvas3DProps, Vec3, checkArgs, checkPass, checkVec, node3d, serialisable } from "./all";
+import { Canvas3DProps, Vec3, checkArgs, checkPass, checkVec, node3d, sameProps, serialisable } from "./all";
 import { InCanvas3D } from "./model";
 import type { MeshAttribute } from "./attribute";
 import { firstKey, useSequenceFrames } from "./clock";
@@ -128,7 +128,7 @@ function geometry<P extends { args?: number[] }>(name: string, defaults: number[
   };
   Object.defineProperty(Component, "name", { value: display });
   // memo: a geometry's props seldom change while its Mesh3d moves every frame, so React skips it (FC1b, bloom_3d)
-  const Memo = Object.assign(memo(Component), { displayName: display });
+  const Memo = Object.assign(memo(Component, sameProps), { displayName: display });
   GEOMETRY_SHAPES.set(Memo, toShape);
   GEOMETRY_BOUNDS.set(Memo, (props) => boundsOf(name, argsOf(props as P)));
   return Memo as unknown as typeof Component;
